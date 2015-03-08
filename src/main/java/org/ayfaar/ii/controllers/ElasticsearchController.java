@@ -1,27 +1,18 @@
 package org.ayfaar.ii.controllers;
 
-import org.ayfaar.app.dao.TermDao;
-import org.ayfaar.app.model.Term;
 import org.ayfaar.ii.service.ClientProvider;
-import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.Client;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentFactory;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.io.IOException;
-import java.util.Map;
 
 @Controller
 public class ElasticsearchController {
     private final String INDEX_NAME = "iisidology";
     private final String TYPE_NAME = "Term";
 
-    private TermDao TermDao;
 
     @RequestMapping("/search")
     private String elasticsearch(@RequestParam("q") String query) {
@@ -32,7 +23,6 @@ public class ElasticsearchController {
                                         .setQuery(QueryBuilders.prefixQuery("name", query))
                                         .execute().actionGet();
         if (response != null) {
-
             System.out.println("Total found: " + response.getHits().getTotalHits());
             System.out.println("Total suggest: " + response.getSuggest());
             System.out.println("Speed Time" + response.getTook());
@@ -42,8 +32,7 @@ public class ElasticsearchController {
         return "/";
     }
 
-
-
+/*
     private void createIndex(){
         System.out.println("index start creating");
         Client client = ClientProvider.getClient();
@@ -92,6 +81,5 @@ public class ElasticsearchController {
             //
         }
     }
-
-
+*/
 }
