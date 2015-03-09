@@ -11,8 +11,7 @@ import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
 @Component
 public class ClientProvider {
-
-    private static final Node node = nodeBuilder().clusterName("ii.ayfaa").node();
+    private static final Node node = nodeBuilder().node();
     private static final Client client = node.client();
 
     private ClientProvider() {

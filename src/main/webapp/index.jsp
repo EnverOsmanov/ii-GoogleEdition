@@ -1287,7 +1287,7 @@
                     <div id="gbq">
                         <div class="gbt gbqfh" id="gbq2">
                             <div id="gbqfw">
-                                <form class="searchURL" action="/api/v3/search" onsubmit="" target="" id="gbqf" name="gbqf"
+                                <form class="searchURL" action="/search" onsubmit="" target="" id="gbqf" name="gbqf"
                                       method="get" >
 
                                     <fieldset class="gbqff gb_i" id="gbqff">

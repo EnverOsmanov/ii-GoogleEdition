@@ -81,11 +81,7 @@
             <version>${jackson.version}</version>
         </dependency>
         <!--                     -->
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>1</version>
-        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -95,11 +91,7 @@
 
         <!-- For test only-->
 
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>RELEASE</version>
-        </dependency>
+
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch</artifactId>
