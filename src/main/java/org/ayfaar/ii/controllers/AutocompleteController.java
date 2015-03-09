@@ -29,8 +29,8 @@ public class AutocompleteController {
         SearchResponse response = client.prepareSearch("iisidology")
                 .setTypes("Term")
                 .setQuery(QueryBuilders.prefixQuery("name", tagName))
-
                 .execute().actionGet();
+
         if (response != null) {
             SearchHit[] results = response.getHits().getHits();
 
