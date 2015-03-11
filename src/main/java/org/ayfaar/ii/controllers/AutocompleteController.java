@@ -1,7 +1,7 @@
 package org.ayfaar.ii.controllers;
 
 import org.ayfaar.ii.service.ClientProvider;
-import org.ayfaar.ii.utils.Suggestion;
+import org.ayfaar.ii.utils.Tag;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.index.query.QueryBuilders;
@@ -19,8 +19,8 @@ public class AutocompleteController {
 
     @RequestMapping("/getTags")
     @ResponseBody
-    public List<Suggestion> getTags(@RequestParam String tagName) {
-        List<Suggestion> data = new ArrayList<>();
+    public List<Tag> getTags(@RequestParam String tagName) {
+        List<Tag> data = new ArrayList<>();
 
         System.out.printf("start %s  searching", tagName);
         System.out.println();
@@ -28,9 +28,9 @@ public class AutocompleteController {
         Client client = ClientProvider.getClient();
         SearchResponse response = client.prepareSearch("iisidology")
                 .setTypes("Term")
-                .setQuery(QueryBuilders.prefixQuery("name", tagName))
-
+                .setQuery(QueryBuilders.prefixQuery("name", tagName.toLowerCase()))
                 .execute().actionGet();
+
         if (response != null) {
             SearchHit[] results = response.getHits().getHits();
 
@@ -41,7 +41,7 @@ public class AutocompleteController {
                 System.out.println(hit.getSourceAsString());
                 Object result = hit.getSource().get("name");
                 //System.out.println(result);
-                data.add(new Suggestion(count, result.toString()));
+                data.add(new Tag(count, result.toString()));
                 count++;
             }
             System.out.println("==========================");

@@ -10,22 +10,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ElasticsearchController {
-    private final String INDEX_NAME = "iisidology";
-    private final String TYPE_NAME = "Term";
-
 
     @RequestMapping("/search")
     private String elasticsearch(@RequestParam("q") String query) {
         System.out.println("start searching");
         Client client = ClientProvider.getClient();
-        SearchResponse response = client.prepareSearch(INDEX_NAME)
-                                        .setTypes(TYPE_NAME)
+        SearchResponse response = client.prepareSearch("iisidology")
+                .setTypes("Term")
                                         .setQuery(QueryBuilders.prefixQuery("name", query))
                                         .execute().actionGet();
+
         if (response != null) {
+
+            //Если нашли один объект - открываем его страницу
+            if (response.getHits().getTotalHits() == 1) {
+                return response.getHits().getHits()[0].getSource().get("name").toString();
+            }
+
+            //иначе весь список
             System.out.println("Total found: " + response.getHits().getTotalHits());
             System.out.println("Total suggest: " + response.getSuggest());
             System.out.println("Speed Time" + response.getTook());
+
+            return "/searchResults";
         } else {
             System.out.println("response is null :( ");
         }
