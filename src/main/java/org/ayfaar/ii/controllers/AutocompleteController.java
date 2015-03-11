@@ -28,7 +28,7 @@ public class AutocompleteController {
         Client client = ClientProvider.getClient();
         SearchResponse response = client.prepareSearch("iisidology")
                 .setTypes("Term")
-                .setQuery(QueryBuilders.prefixQuery("name", tagName))
+                .setQuery(QueryBuilders.prefixQuery("name", tagName.toLowerCase()))
                 .execute().actionGet();
 
         if (response != null) {
