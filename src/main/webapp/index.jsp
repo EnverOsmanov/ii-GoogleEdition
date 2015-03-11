@@ -7,9 +7,9 @@
     <meta content="/images/favicon.ico" itemprop="image">
     <title>IIoogle</title>
 
-    <script src="<c:url value="/resources/core/jquery-1.8.2.min.js" />"></script>
-    <script src="<c:url value="/resources/core/jquery.autocomplete.min.js" />"></script>
-    <link href="<c:url value="/resources/core/main.css" />" rel="stylesheet">
+    <script src="<c:url value="/resources/jquery-1.8.2.min.js" />"></script>
+    <script src="<c:url value="/resources/jquery.autocomplete.min.js" />"></script>
+    <link href="<c:url value="/resources/main.css" />" rel="stylesheet">
 
     <style>
         #gb.gb_Xc .gb_Fb {

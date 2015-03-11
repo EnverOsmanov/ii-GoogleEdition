@@ -22,11 +22,11 @@
             background: transparent;
             border-bottom-color: transparent
         }
+
         .gb_Xc #gbq {
             height: 0;
             position: absolute
         }
-
 
         .gbqfba:focus {
             border: 1px solid #4d90fe;
@@ -51,7 +51,6 @@
             box-shadow: 0 1px 0 rgba(0, 0, 0, .15), inset 0 0 0 1px #fff
         }
 
-
         .gbqfba {
             border: 1px solid rgba(0, 0, 0, 0.1);
             color: #444 !important;
@@ -62,14 +61,6 @@
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f5f5f5, endColorstr=#f1f1f1, GradientType=1)
         }
 
-
-
-
-
-
-
-
-
         .gbqff {
             border: none;
             display: inline-block;
@@ -78,22 +69,6 @@
             vertical-align: top;
             width: 100%
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         .gbqfqw {
             background: #fff;
@@ -104,10 +79,6 @@
             -moz-box-sizing: border-box;
             box-sizing: border-box
         }
-
-
-
-
 
         .gbqfqw.gbqfqw:hover {
             border-color: #a9a9a9;
@@ -1022,11 +993,10 @@
         left: -5px
     }
 
-
-
     .gb_e .gb_Mc::before {
         clip: rect(34px 614px 66px 582px)
     }
+
     }
 
     .gb_e .gb_Ta, .gb_e .gbii, .gb_e .gbip {
